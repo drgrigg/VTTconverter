@@ -11,7 +11,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["/Users/david/WorkingFiles/Temp/Jessica Jones/Jessica Jones S01E01.wav.vtt"]
+            "args": ["/Users/david/WorkingFiles/Podcast_David/Episodes/Episodes 001 to 010/Episode_005/Episode_005.wav.vtt"]
         }
     ]
 }

@@ -35,7 +35,7 @@ class Caption():
         # if duration > MAX_DURATION:
         #     self.end_time.the_time = self.start_time.the_time + timedelta(seconds=MAX_DURATION)
         self.text = text
-        
+
     @property
     def duration(self) -> int:  # seconds
         return self.start_time.diff_between(self.end_time)
@@ -50,7 +50,7 @@ captions = []
 
 def read_vtt(filename:str):
     global captions
-    vtt_pattern = r'(\d?):?(\d\d):(\d\d).(\d\d\d) --> (\d?):?(\d\d):(\d\d).(\d\d\d)'
+    vtt_pattern = r'(\d?\d?):?(\d\d):(\d\d).(\d\d\d) --> (\d?\d?):?(\d\d):(\d\d).(\d\d\d)'
     with open(filename, "r") as vtt:
         lines = vtt.readlines()
         vtt.close()
