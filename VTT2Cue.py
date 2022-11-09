@@ -6,7 +6,6 @@ import regex
 import datetime
 from datetime import timedelta
 
-WANTED_GAP = 1 # seconds
 
 class CueHeader:
 	title = ""
@@ -137,17 +136,12 @@ def read_vtt(filename:str):
 
 def write_cue(filename:str):
     global tracks
-    last_time = datetime.datetime(2000,1,1,0,0,0,0 * 1000)
     caption: Caption = None
     for caption in captions:
-        # we don't want to turn ALL of the captions into markers
-        gap = caption.start_time.diff_between(last_time)
-        if gap >= WANTED_GAP:
-            last_time = caption.start_time.the_time
-            track = CueTrack()
-            track.start_time = CueTime(caption.start_time.total_seconds() * 75)
-            track.title = caption.text
-            tracks.append(track)
+        track = CueTrack()
+        track.start_time = CueTime(caption.start_time.total_seconds() * 75)
+        track.title = caption.text
+        tracks.append(track)
             
     with open(filename, 'w') as cue:
         tracknum = 1
