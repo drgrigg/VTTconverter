@@ -99,6 +99,8 @@ def main() -> None:
 		srtname = regex.sub(r'\.vtt', '.srt', tail)
 		srtpath = os.path.join(head, srtname)
 		write_srt(srtpath)
+	else:
+		print(f'File {vttpath} does not exist!')
 
 
 if __name__ == "__main__":
